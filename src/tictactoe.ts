@@ -12,7 +12,7 @@ class Game{
 
   constructor(goCross: boolean = false) {
     this.goCross = goCross;
-    console.log(`Первыми будут ходить: ${this.goCross ? "Крестики" : "Нолики"}\n`);
+    console.log(`\tПервыми будут ходить: ${this.goCross ? "Крестики" : "Нолики"}\n`);
     this.go()
   }
 
@@ -121,13 +121,13 @@ class Game{
     const winSteps: number[][] = this.findLine(this.whoWalking(), 3); // ищем 3 из 3
 
     if(winSteps.length){
-      console.log("ПОБЕДА !!!");
+      console.log("\tПОБЕДА !!!");
       return true;
     }
 
     const emptyCells: number = this.amountEmpty();
     if(emptyCells == 0){
-      console.log("НИЧЬЯ !!!");
+      console.log("\tНИЧЬЯ !!!");
       return true;
     }
 
@@ -148,12 +148,12 @@ class Game{
       }
 
       if (row == 0){
-        console.log(text);
+        console.log("\t" + text);
         text = ""
         row = 3
       }
     }
-    console.log("\n");
+    console.log("");
   }
 
   nextStep(): number | null {
@@ -172,7 +172,7 @@ class Game{
     let num: number | null = this.randomGo() // первый шаг рандомный
 
     while (num != null){
-      console.log(`Шаг №${++this.step}`);
+      console.log(`\tШаг №${++this.step}`);
 
       // Поместили фигуру на поле
       this.fields[num] = this.whoWalking();
@@ -189,7 +189,7 @@ class Game{
 
       // Защита от бесконечного цикла: больше 9 ходов быть не может
       if (this.step >= 9){
-        console.log("Слишком много ходов ..............");
+        console.log("\tСлишком много ходов ..............");
         break;
       }
     }
@@ -197,9 +197,9 @@ class Game{
 }
 
 function start(): void {
-  console.log("Вас приветсвует игра, 'Крестики-Нолики'\n");
+  console.log("\n\tВас приветсвует игра, 'Крестики-Нолики'\n");
   new Game(true); // Первыми ходят Крестики
-  console.log("Игра окончена !");
+  console.log("\tИгра окончена !\n");
 }
 
 start()
