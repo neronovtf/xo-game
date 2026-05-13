@@ -21,3 +21,7 @@ cd xo-game
 tsc
 node dist/tictactoe.js
 ```
+
+## Результат
+![Геймплей](screenshots/screen_01.png)
+![Геймплей](screenshots/screen_02.png)
